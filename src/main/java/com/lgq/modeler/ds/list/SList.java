@@ -3,7 +3,7 @@ package com.lgq.modeler.ds.list;
 /**
  * Created by eric on 2018/12/26.
  */
-public classSList<T> {
+public class SList<T> {
     /**
      * 声明头节点
      */
