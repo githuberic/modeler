@@ -4,9 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
-
 import com.google.common.base.Strings;
-import org.apache.commons.lang.StringUtils;
 
 /**
  * 带虚拟节点的一致性Hash算法
@@ -84,7 +82,7 @@ public class ConsistentHashingWithVirtualNode {
             virtualNode = subMap.get(i);
         }
         //virtualNode虚拟节点名称要截取一下
-        if (StringUtils.isNotBlank(virtualNode)) {
+        if (!Strings.isNullOrEmpty(virtualNode)) {
             return virtualNode.substring(0, virtualNode.indexOf("&&"));
         }
         return null;
