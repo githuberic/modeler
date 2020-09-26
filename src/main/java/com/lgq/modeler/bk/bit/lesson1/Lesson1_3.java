@@ -6,7 +6,6 @@ import java.math.BigInteger;
  * @author lgq
  */
 public class Lesson1_3 {
-
     public static int or(int num1, int num2) {
         return (num1 | num2);
     }
@@ -18,8 +17,7 @@ public class Lesson1_3 {
     public static int xor(int num1, int num2) {
         return (num1 ^ num2);
     }
-
-
+    
     public static void main(String[] args) {
 
         int a = 53;
@@ -46,5 +44,4 @@ public class Lesson1_3 {
         BigInteger bigInteger = new BigInteger(String.valueOf(decimalSource));
         return bigInteger.toString(2);
     }
-
 }
