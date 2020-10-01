@@ -9,15 +9,21 @@ import com.lgq.modeler.ds.list.Node;
  */
 public class SingleList<T> {
 
-    // 头节点指针
+    /**
+     * 头节点指针
+     */
     private Node<T> header;
-    // 尾节点指针
+    /**
+     * 尾节点指针
+     */
     private Node<T> last;
-    // 实际长度
+    /**
+     * 实际长度
+     */
     private int size;
 
     public SingleList() {
-        header = new Node<T>();
+        header = new Node<>();
         last = header;
         size = 0;
     }
@@ -76,6 +82,7 @@ public class SingleList<T> {
             last = node;
         } else {
             // 插入中间
+            // 找到index前一个节点
             Node<T> preNode = select(index - 1);
             node.setNext(preNode.getNext());
             preNode.setNext(node);
@@ -112,6 +119,9 @@ public class SingleList<T> {
         return rNode;
     }
 
+    /**
+     * 输出链表
+     */
     public void output() {
         Node<T> node = header;
         while (node != null) {
