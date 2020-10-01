@@ -3,14 +3,17 @@ package com.lgq.modeler.ds.list.v1;
 import com.lgq.modeler.ds.list.Node;
 
 /**
- * Created by eric on 2020/1/1.
- * 单链表
+ * Created by eric on 2020/1/1. 单链表
  *
  * @author lgq
  */
 public class SingleList<T> {
+
+    // 头节点指针
     private Node<T> header;
+    // 尾节点指针
     private Node<T> last;
+    // 实际长度
     private int size;
 
     public SingleList() {
@@ -22,7 +25,6 @@ public class SingleList<T> {
     public int getSize() {
         return this.size;
     }
-
 
     public Node<T> select(int index) throws Exception {
         if (index < 0 || index >= size) {

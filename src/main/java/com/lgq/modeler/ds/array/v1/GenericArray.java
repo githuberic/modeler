@@ -6,6 +6,7 @@ package com.lgq.modeler.ds.array.v1;
  * @author lgq
  */
 public class GenericArray<T> {
+
     private T[] data;
     private int size;
 
@@ -60,6 +61,11 @@ public class GenericArray<T> {
     public void add(T t, int index) {
         checkIndex(index);
 
+        // 如果实际元素达到数组容量上限，则对数组进行扩容
+        if (size >= data.length) {
+            resize(data.length * 2);
+        }
+
         for (int i = size - 1; i >= index; i--) {
             data[i + 1] = data[i];
         }
@@ -83,10 +89,10 @@ public class GenericArray<T> {
 
     public void resize(int capacity) {
         T[] newData = (T[]) new Object[capacity];
-        for (int i = 0; i < size; i++) {
-            newData[i] = data[i];
-        }
+        //  数组复制
+        System.arraycopy(data, 0, newData, 0, data.length);
         data = newData;
+        System.out.println(">>>resize()");
     }
 
     @Override
@@ -118,12 +124,18 @@ public class GenericArray<T> {
 
 
     public static void main(String[] args) {
-        GenericArray<Integer> genericArray = new GenericArray<>();
-        genericArray.add(3,0);
-        genericArray.add(22,1);
-        genericArray.add(9,2);
-        genericArray.add(8,3);
-        genericArray.add(5,4);
+        GenericArray<Integer> genericArray = new GenericArray<>(3);
+        genericArray.add(3, 0);
+        genericArray.add(22, 1);
+        genericArray.add(9, 2);
+        genericArray.add(8, 3);
+        genericArray.add(5, 4);
         System.out.println(genericArray.toString());
+        System.out.println(">>>remove");
+        genericArray.remove(2);
+        System.out.println(genericArray.toString());
+        genericArray.add(44, 2);
+        int findPosition = genericArray.find(44);
+        System.out.println(String.format(">>>find,element=%s,position=%d\n", 44, findPosition));
     }
 }
