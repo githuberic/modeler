@@ -11,7 +11,8 @@ import java.util.Arrays;
  *
  * @author shaofeng
  */
-public class BubbleSort {
+public class
+BubbleSort {
     public void sort(int[] arr) {
         if (arr.length == 0) {
             return;
