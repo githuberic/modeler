@@ -98,6 +98,7 @@ public class LRUCache {
      *
      * @param node 要插入的节点
      */
+    /*
     private void addNode(Node node) {
         if (end != null) {
             end.next = node;
@@ -108,6 +109,19 @@ public class LRUCache {
         if (head == null) {
             head = node;
         }
+    }*/
+
+    private void addNode(Node node) {
+        if (head == null) {
+            head = node;
+        }
+
+        if (end != null) {
+            end.next = node;
+            node.pre = end;
+            node.next = null;
+        }
+        end = node;
     }
 
     class Node {
@@ -129,7 +143,7 @@ public class LRUCache {
         lruCache.put("003", "用户3信息");
         lruCache.put("004", "用户4信息");
         lruCache.put("005", "用户5信息");
-        lruCache.get("002");
+        System.out.println(lruCache.get("003"));
         lruCache.put("004", "用户4信息更新");
         lruCache.put("006", "用户6信息");
         System.out.println(lruCache.get("001"));
