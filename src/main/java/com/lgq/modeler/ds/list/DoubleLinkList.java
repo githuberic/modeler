@@ -24,13 +24,6 @@ public class DoubleLinkList<T> {
         return this.size == 0;
     }
 
-    public void checkIndex(int index) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException();
-        }
-        return;
-    }
-
     public Node<T> getNode(int index) {
         checkIndex(index);
 
@@ -73,7 +66,8 @@ public class DoubleLinkList<T> {
             size++;
             return;
         }
-        // 如果这次插入到首位
+
+        // 插入到首位
         if (index == 0) {
             Node<T> cur = new Node<T>(value, head, head.next);
             head.next.pre = cur;
@@ -135,6 +129,13 @@ public class DoubleLinkList<T> {
         delete(size - 1);
     }
 
+    private void checkIndex(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+        return;
+    }
+
     private class Node<T> {
         private T value;
         private Node<T> pre;
@@ -155,6 +156,7 @@ public class DoubleLinkList<T> {
         doubleLinkList.insertInto("a3");
         doubleLinkList.insertInto("a4");
         doubleLinkList.insertInto("a5");
+        doubleLinkList.insert("a6",1);
         DoubleLinkList.Node node = doubleLinkList.getNode(1);
         if (node != null) {
             System.out.println(node.value);

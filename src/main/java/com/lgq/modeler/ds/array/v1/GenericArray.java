@@ -22,18 +22,39 @@ public class GenericArray<T> {
         this(10);
     }
 
+    /**
+     * 获取数组容量
+     *
+     * @return
+     */
     public int getCapacity() {
         return this.data.length;
     }
 
+    /**
+     * 获取当前元素个数
+     *
+     * @return
+     */
     public int getSize() {
         return this.size;
     }
 
+    /**
+     * 判断数组是否为空
+     *
+     * @return
+     */
     public boolean isEmpty() {
         return this.size == 0;
     }
 
+    /**
+     * 查看数组是否包含元素e
+     *
+     * @param t
+     * @return
+     */
     public boolean contains(T t) {
         for (int i = 0; i < size; i++) {
             if (data[i].equals(t)) {
@@ -75,24 +96,45 @@ public class GenericArray<T> {
     }
 
     public T remove(int index) {
-        checkIndex(index);
+        checkIndexForRemove(index);
 
         T ret = data[index];
 
-        for (int i = index; i < size - 1; i++) {
-            data[i] = data[i + 1];
+        for (int i = index + 1; i < size; i++) {
+            data[i - 1] = data[i];
         }
 
         size--;
+        data[size] = null;
+
         return ret;
     }
 
+    public T removeFirst() {
+        return remove(0);
+    }
+
+    public T removeLast() {
+        return remove(size - 1);
+    }
+
+    public void removeElement(T t) {
+        int index = find(t);
+        if (index != -1) {
+            remove(index);
+        }
+    }
+
+    /**
+     * 扩容
+     *
+     * @param capacity
+     */
     public void resize(int capacity) {
         T[] newData = (T[]) new Object[capacity];
         //  数组复制
         System.arraycopy(data, 0, newData, 0, data.length);
         data = newData;
-        System.out.println(">>>resize()");
     }
 
     @Override
@@ -121,7 +163,6 @@ public class GenericArray<T> {
             throw new IllegalArgumentException("Remove failed! Require index >=0 and index < size.");
         }
     }
-
 
     public static void main(String[] args) {
         GenericArray<Integer> genericArray = new GenericArray<>(3);
