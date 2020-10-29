@@ -17,7 +17,12 @@ public class SingleLinkedList {
         System.out.println();
     }
 
-    //带结点的链表翻转
+    /**
+     * 带结点的链表翻转
+     *
+     * @param p
+     * @return
+     */
     public Node inverseLinkList_head(Node p) {
         //　Head　为新建的一个头结点
         Node Head = new Node(9999, null);
@@ -30,7 +35,6 @@ public class SingleLinkedList {
         Node Cur = p.next;
         p.next = null;
         Node next = null;
-
         while (Cur != null) {
             next = Cur.next;
             Cur.next = Head.next;
@@ -43,7 +47,12 @@ public class SingleLinkedList {
         return Head;
     }
 
-    //无头结点的链表翻转
+    /**
+     * 无头结点的链表翻转
+     *
+     * @param p
+     * @return
+     */
     public Node inverseLinkList(Node p) {
         Node pre = null;
         Node r = head;
@@ -51,7 +60,6 @@ public class SingleLinkedList {
         Node next = null;
         while (r != p) {
             next = r.next;
-
             r.next = pre;
             pre = r;
             r = next;
