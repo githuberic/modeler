@@ -1,4 +1,4 @@
-package com.lgq.modeler.ds.list.single.v1;
+package com.lgq.modeler.ds.list.single.basic;
 
 import com.lgq.modeler.ds.list.Node;
 
