@@ -1,4 +1,4 @@
-package com.lgq.modeler.ds.cases.cache;
+package com.lgq.modeler.ds.list.cases.cache;
 
 import java.util.HashMap;
 
