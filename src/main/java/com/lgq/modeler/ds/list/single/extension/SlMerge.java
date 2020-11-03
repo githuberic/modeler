@@ -15,7 +15,7 @@ public class SlMerge {
         head = new Node();
     }
 
-    public Node merge(Node first, Node second) {
+    public Node merge(Node<Integer> first, Node<Integer> second) {
         if (first == null) {
             return second;
         }
@@ -23,21 +23,19 @@ public class SlMerge {
             return first;
         }
 
-        Node<Integer> nodeHeadFirst = first;
-        Node<Integer> nodeHeadSecond = second;
-        if (nodeHeadFirst.getData() == null) {
-            nodeHeadFirst = nodeHeadFirst.getNext();
+        if (first.getData() == null) {
+            first = first.getNext();
         }
-        if (nodeHeadSecond.getData() == null) {
-            nodeHeadSecond = nodeHeadSecond.getNext();
+        if (second.getData() == null) {
+            second = second.getNext();
         }
 
-        if (nodeHeadFirst.getData() < nodeHeadSecond.getData()) {
-            nodeHeadFirst.setNext(merge(nodeHeadFirst.getNext(), nodeHeadSecond));
-            return nodeHeadFirst;
+        if (first.getData() < second.getData()) {
+            first.setNext(merge(first.getNext(), second));
+            return first;
         } else {
-            nodeHeadSecond.setNext(merge(nodeHeadFirst, nodeHeadSecond.getNext()));
-            return nodeHeadSecond;
+            second.setNext(merge(first, second.getNext()));
+            return second;
         }
     }
 
@@ -66,24 +64,23 @@ public class SlMerge {
     }
 
     public static void main(String[] args) {
-
         SlMerge slMergeV1 = new SlMerge();
         // 初始化
-        Integer data[] = {1, 2, 3};
-        for (int i = 0; i < data.length; i++) {
-            SlInsertUtil.insertTail(slMergeV1.head, data[i]);
+        Integer[] data = {1, 2, 3};
+        for (Integer datum : data) {
+            SlInsertUtil.insertTail(slMergeV1.head, datum);
         }
 
         SlMerge slMergeV2 = new SlMerge();
         // 初始化
-        Integer dataV2[] = {4, 5, 6};
-        for (int i = 0; i < data.length; i++) {
-            SlInsertUtil.insertTail(slMergeV2.head, dataV2[i]);
+        Integer[] dataV2 = {4, 5, 6};
+        for (Integer integer : dataV2) {
+            SlInsertUtil.insertTail(slMergeV2.head, integer);
         }
 
         SlMerge merge = new SlMerge();
-        //merge.head = merge.merge(slMergeV1.head, slMergeV2.head);
-        merge.head = merge.mergeV2(slMergeV1.head, slMergeV2.head);
+        merge.head = merge.merge(slMergeV1.head, slMergeV2.head);
+        //merge.head = merge.mergeV2(slMergeV1.head, slMergeV2.head);
         // 验证-输出
         System.out.println(">>>output");
         SlUtil.printAll(merge.head);
