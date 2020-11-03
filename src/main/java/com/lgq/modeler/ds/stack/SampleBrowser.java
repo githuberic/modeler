@@ -20,7 +20,7 @@ public class SampleBrowser {
             this.backStack.push(this.currentPage);
             this.forwardStack.clear();
         }
-        showUrl(this.currentPage, "Open");
+        showUrl(url, "Open");
     }
 
     public String goBack() {
