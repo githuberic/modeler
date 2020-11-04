@@ -11,31 +11,77 @@ import java.util.Arrays;
  *
  * @author shaofeng
  */
-public class
-BubbleSort {
-    public void sort(int[] arr) {
+public class BubbleSort {
+    public int sort(int[] arr) {
+        int comparedCount = 0;
         if (arr.length == 0) {
-            return;
+            return comparedCount;
         }
 
         int length = arr.length;
         // 共n轮排序,每轮都是把最大的元素排在后面
         for (int i = 0; i < length - 1; i++) {
+            boolean flag = false;
             // 每轮排序中:需要比较的元素个数比上一轮少一个
             for (int j = 0; j < length - i - 1; j++) {
+                // 交换
                 if (arr[j] > arr[j + 1]) {
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
+                    flag = true;
+                    ++comparedCount;
                 }
             }
+            if (!flag) {
+                break;
+            }
         }
+        return comparedCount;
+    }
+
+    public int sortV2(int[] arr) {
+        int comparedCount = 0;
+        if (arr.length == 0) {
+            return comparedCount;
+        }
+
+        int length = arr.length;
+        int lastExchange = 0;
+        int sortBorder = length - 1;
+        // 共n轮排序,每轮都是把最大的元素排在后面
+        for (int i = 0; i < length - 1; i++) {
+            boolean flag = false;
+            // 每轮排序中:需要比较的元素个数比上一轮少一个
+            for (int j = 0; j < sortBorder; j++) {
+                // 交换
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    flag = true;
+                    ++comparedCount;
+                    lastExchange = j;
+                }
+            }
+            sortBorder = lastExchange;
+            if (!flag) {
+                break;
+            }
+        }
+        return comparedCount;
     }
 
     public static void main(String[] args) {
-        int[] array = new int[]{7, 3, 10, 0, 6};
+        int[] array = new int[]{3, 4, 22, 10, 5, 6, 7, 8};
         BubbleSort bubbleSort = new BubbleSort();
-        bubbleSort.sort(array);
+        /*
+        int comparedCount = bubbleSort.sort(array);
+        System.out.println(">>>Compared count=" + comparedCount);
+        System.out.println(Arrays.toString(array));*/
+
+        int comparedCount = bubbleSort.sortV2(array);
+        System.out.println(">>>Compared count=" + comparedCount);
         System.out.println(Arrays.toString(array));
     }
 }
