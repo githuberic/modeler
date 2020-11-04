@@ -8,43 +8,54 @@ package com.lgq.modeler.ds.queue;
  */
 public class CircleQueue<T> {
     private T[] array;
-    private int front;
-    private int rear;
+    private int n = 0;
+    private int head = 0;
+    private int tail = 0;
 
     public CircleQueue(int capacity) {
         array = (T[]) new Object[capacity];
+        n = capacity;
     }
 
-    public void enQueue(T element) throws Exception {
-        if ((rear + 1) % array.length == front) {
-            throw new Exception("Queue is full");
+    public boolean enQueue(T element) {
+        if ((tail + 1) % n == head) {
+            return false;
         }
-        array[rear] = element;
-        rear = (rear + 1) % array.length;
+        array[tail] = element;
+        tail = (tail + 1) % n;
+        return true;
     }
 
-    public T deQueue() throws Exception {
-        if (rear == front) {
-            throw new Exception("Queue is empty");
+    @SuppressWarnings("unchecked")
+    public T deQueue() {
+        if (tail == head) {
+            return null;
         }
-        T t = array[front];
-        front = (front + 1) % array.length;
+        T t = array[head];
+        head = (head + 1) % n;
         return t;
     }
 
     public void output() {
-        for (int i = front; i != rear; i = (i + 1) % array.length) {
-            System.out.println(array[i].toString());
+        if (n == 0) {
+            return;
+        }
+
+        for (int i = head; i % n != tail; ++i) {
+            System.out.println(array[i] + "");
         }
     }
 
     public static void main(String[] args) throws Exception {
         CircleQueue<String> circleQueue = new CircleQueue<>(6);
-        circleQueue.enQueue("a");
-        circleQueue.enQueue("b");
-        circleQueue.enQueue("c");
-        circleQueue.deQueue();
-        circleQueue.enQueue("d");
+        circleQueue.enQueue("a1");
+        circleQueue.enQueue("a2");
+        circleQueue.enQueue("a3");
+        circleQueue.enQueue("a4");
+        circleQueue.enQueue("a5");
+        circleQueue.enQueue("a6");
+        circleQueue.enQueue("a7");
+        circleQueue.output();
         circleQueue.deQueue();
 
         circleQueue.output();
