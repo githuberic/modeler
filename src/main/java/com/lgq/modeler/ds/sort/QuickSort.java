@@ -32,15 +32,15 @@ public class QuickSort {
             return;
         }
 
-        int flag = arr[low];
+        int pivot = arr[low];
         int i = low;
         int j = high;
 
         while (i < j) {
-            while (i < j && arr[j] > flag) {
+            while (i < j && arr[j] > pivot) {
                 j--;
             }
-            while (i < j && arr[i] <= flag) {
+            while (i < j && arr[i] <= pivot) {
                 i++;
             }
             if (i < j) {
