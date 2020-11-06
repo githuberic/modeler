@@ -73,7 +73,7 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        int[] array = new int[]{3, 4, 22, 10, 5, 6, 7, 8};
+        int[] array = new int[]{4, 5, 6, 3, 2, 1};
         BubbleSort bubbleSort = new BubbleSort();
         /*
         int comparedCount = bubbleSort.sort(array);

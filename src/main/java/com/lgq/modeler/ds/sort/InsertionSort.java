@@ -16,21 +16,17 @@ public class InsertionSort {
         int length = arr.length;
         for (int i = 1; i < length; ++i) {
             int j = i - 1;
-            //temp是本趟待插入的数，之前从0~i-1的数全是从左→右有序递增。
+            // temp是本趟待插入的数，之前从0~i-1的数全是从左→右有序递增。
             int temp = arr[i];
-            // 查找要插入的位置并移动数据
-            int x = 0;
             for (; j >= 0; --j) {
                 if (arr[j] > temp) {
                     arr[j + 1] = arr[j];
-                    x = 1;
                 } else {
                     break;
                 }
             }
             // 插入数据
             arr[j + 1] = temp;
-            x = 2;
         }
     }
 
