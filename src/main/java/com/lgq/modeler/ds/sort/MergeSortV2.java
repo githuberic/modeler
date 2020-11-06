@@ -1,5 +1,7 @@
 package com.lgq.modeler.ds.sort;
 
+import java.util.Arrays;
+
 /**
  * Created by eric on 2019/1/1.
  *
@@ -14,16 +16,18 @@ public class MergeSortV2 {
      * @param start 指定排序的开始位置
      * @param end   指定排序的结束位置
      */
-    private static void sort(int[] arr, int[] tmp, int start, int end) {
-        //递归结束条件，就是数组索引从头到尾遍历完毕。
+    public void sort(int[] arr, int[] tmp, int start, int end) {
+        // 递归结束条件，就是数组索引从头到尾遍历完毕。
         if (start >= end) {
             return;
         }
+
         //分治思想递归实现
         //递归公式：merge(start...end)=merge(start...mid),merge(mid+1...end)
         int mid = (start + end) / 2;
         sort(arr, tmp, start, mid);
         sort(arr, tmp, mid + 1, end);
+
         //开始合并分治后的结果
         merge(arr, tmp, start, mid, end);
     }
@@ -44,21 +48,21 @@ public class MergeSortV2 {
             tem[k] = arr[k];
         }
 
-        //将数据拷贝会原来的数组
+        // 将数据拷贝会原来的数组
         int x = start;
         int y = mid + 1;
         for (int k = start; k <= end; k++) {
-            //判断分出的第一个数组是否越界
+            // 判断分出的第一个数组是否越界
             if (x > mid) {
                 arr[k] = tem[y];
                 y++;
             }
-            //判断分出的第二个数组是否越界
+            // 判断分出的第二个数组是否越界
             else if (y > end) {
                 arr[k] = tem[x++];
                 x++;
             }
-            //真正开始比较两个元素大小
+            // 真正开始比较两个元素大小
             else if (tem[y] < tem[x]) {
                 arr[k] = tem[y];
                 y++;
@@ -68,4 +72,13 @@ public class MergeSortV2 {
             }
         }
     }
+
+    /*
+    public static void main(String[] args) {
+        int[] array = new int[]{7, 3, 10, 0, 6};
+        MergeSortV2 mergeSort = new MergeSortV2();
+        mergeSort.sort(array);
+        int[] arrSort = mergeSort.sort(array);
+        System.out.println(Arrays.toString(arrSort));
+    }*/
 }
