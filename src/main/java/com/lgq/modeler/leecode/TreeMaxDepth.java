@@ -1,8 +1,5 @@
 package com.lgq.modeler.leecode;
 
-import com.lgq.modeler.ds.tree.BalancedTree;
-import com.lgq.modeler.ds.tree.Node;
-
 import java.util.LinkedList;
 import java.util.Queue;
 

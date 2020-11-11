@@ -1,4 +1,6 @@
-package com.lgq.modeler.ds.tree;
+package com.lgq.modeler.ds.tree.balancedtree;
+
+import com.lgq.modeler.ds.tree.Node;
 
 /**
  * Created by eric on 2018/9/21.
