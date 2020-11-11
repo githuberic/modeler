@@ -2,6 +2,8 @@ package com.lgq.modeler.ds.tree;
 
 /**
  * Created by eric on 2018/9/21.
+ *
+ * @author lgq
  */
 public class BalancedTree {
     public static int getHeight(Node root) {

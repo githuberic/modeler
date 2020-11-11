@@ -1,4 +1,4 @@
-package com.lgq.modeler.ds;
+package com.lgq.modeler.ds.tree;
 
 /**
  * Created by eric on 2018/8/6.
