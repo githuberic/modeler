@@ -1,9 +1,11 @@
-package com.lgq.modeler.ds.tree;
+package com.lgq.modeler.ds.tree.traversal;
 
 import java.util.Stack;
 
 /**
- * Created by eric on 2018/11/1.
+ * 中序遍历
+ *
+ * @author lgq
  */
 public class InorderTree {
     public void inorderRecursive(Node root) {
@@ -22,10 +24,12 @@ public class InorderTree {
                 nodeStack.push(root);
                 root = root.left;
             }
+
             // check if Stack is empty, if yes, exit from everywhere
             if (nodeStack.isEmpty()) {
                 return;
             }
+
             // pop the element from the stack , print it and add the nodes at
             // the right to the Stack
             root = nodeStack.pop();

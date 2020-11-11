@@ -1,12 +1,18 @@
-package com.lgq.modeler.ds.tree;
+package com.lgq.modeler.ds.tree.traversal;
 
 import java.util.Stack;
 
 /**
  * 前序遍历
- * Created by eric on 2018/10/31.
+ *
+ * @author lgq
  */
 public class PreOrderTree {
+    /**
+     * 前序遍历
+     *
+     * @param root
+     */
     public void preOrderRecursive(Node root) {
         if (root != null) {
             System.out.print(root.data + " ");
@@ -15,11 +21,16 @@ public class PreOrderTree {
         }
     }
 
+    /**
+     * 前序遍历
+     *
+     * @param root
+     */
     public void preorderIteration(Node root) {
         Stack<Node> nodeStack = new Stack<Node>();
         int index = 0;
         while (true) {
-            System.out.println("Index=" + index++);
+            //System.out.println("Index=" + index++);
             // First print the root node and then add left node
             while (root != null) {
                 System.out.print(root.data + " ");
@@ -31,9 +42,22 @@ public class PreOrderTree {
             if (nodeStack.isEmpty()) {
                 return;
             }
+
             // pop the element from the stack and go right to the tree
             root = nodeStack.pop();
             root = root.right;
+        }
+    }
+
+    static class Node{
+        int data;
+        Node left;
+        Node right;
+
+        public Node(int data) {
+            this.data = data;
+            this.left = null;
+            this.right = null;
         }
     }
 

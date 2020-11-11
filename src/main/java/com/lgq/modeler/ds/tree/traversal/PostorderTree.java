@@ -1,4 +1,4 @@
-package com.lgq.modeler.ds.tree;
+package com.lgq.modeler.ds.tree.traversal;
 
 import java.util.Stack;
 
@@ -16,9 +16,10 @@ public class PostorderTree {
         }
     }
 
-    public void preorderIteration(Node root) {
+    public void postOrderIteration(Node root) {
         Stack<Node> s1 = new Stack<Node>();
         Stack<Node> s2 = new Stack<Node>();
+
         // push the root node into first stack.
         s1.push(root);
         while (s1.isEmpty() == false) {
@@ -34,10 +35,11 @@ public class PostorderTree {
                 s1.push(temp.right);
             }
         }
-        //once the all node are traversed, take out the nodes from second stack and print it.
-        System.out.println("Preorder Traversal: ");
+
+        // once the all node are traversed, take out the nodes from second stack and print it.
+        // System.out.println("Preorder Traversal: ");
         while (s2.isEmpty() == false) {
-            System.out.print(s2.pop());
+            System.out.print(s2.pop().data+ " ");
         }
     }
 
@@ -53,7 +55,7 @@ public class PostorderTree {
         PostorderTree i = new PostorderTree();
         i.postOrderRecursive(root);
         System.out.println();
-        i.postOrderRecursive(root);
+        i.postOrderIteration(root);
     }
     //from :https://algorithms.tutorialhorizon.com//binary-tree-postorder-traversal-non-recursive-approach/
 }

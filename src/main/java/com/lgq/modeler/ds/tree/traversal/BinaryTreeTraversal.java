@@ -1,4 +1,4 @@
-package com.lgq.modeler.ds.tree.chapter3.part2;
+package com.lgq.modeler.ds.tree.traversal;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -8,6 +8,12 @@ import java.util.LinkedList;
  * 二叉树遍历
  */
 public class BinaryTreeTraversal {
+    /**
+     * 通过linkedlist 构建tree
+     *
+     * @param linkedList
+     * @return
+     */
     public static TreeNode createBinaryTree(LinkedList<Integer> linkedList) {
         TreeNode treeNode = null;
         if (linkedList == null || linkedList.isEmpty()) {
@@ -62,8 +68,9 @@ public class BinaryTreeTraversal {
     }
 
     public static void main(String[] args) {
-        LinkedList<Integer> inputList = new LinkedList<Integer>(Arrays.asList(new Integer[]{3,2,9,null,null,10,null,null,8,null,4,}));
+        LinkedList<Integer> inputList = new LinkedList<Integer>(Arrays.asList(new Integer[]{3, 2, 9, null, null, 10, null, null, 8, null, 4,}));
         TreeNode treeNode = createBinaryTree(inputList);
+
         System.out.println("前序遍历：");
         preOrderTraversal(treeNode);
         System.out.println("中序遍历：");
