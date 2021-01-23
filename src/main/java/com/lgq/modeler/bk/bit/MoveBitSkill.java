@@ -11,5 +11,12 @@ public class MoveBitSkill {
         // 1. 获得int型最大值；2147483647的十六进制为0x7FFFFFFF,其中最高位为符号位
         System.out.println((1 << 31) - 1);// 2147483647， 由于优先级关系，括号不可省略
         System.out.println(~(1 << 31));// 2147483647
+
+        int A = 10;
+        int B = 3;
+        int C = A%B;
+        int D = A&(B-1);
+        System.out.println(C);
+        System.out.println(D);
     }
 }
