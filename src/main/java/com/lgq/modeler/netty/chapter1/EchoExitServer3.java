@@ -10,14 +10,13 @@ import io.netty.handler.logging.LoggingHandler;
 
 import java.util.logging.Logger;
 
-
 /**
  * @author lgq
  */
-public class EchoExitServer2 {
+public class EchoExitServer3 {
     static Logger logger = Logger.getLogger(EchoExitServer2.class.getName());
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         // 网络IO读写的工作线程池
         EventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -37,14 +36,9 @@ public class EchoExitServer2 {
             // 同步方式监听
             ChannelFuture cf = b.bind(18080).sync();
 
-            // Close future 监听channel关闭
-            cf.channel().closeFuture().addListener(new ChannelFutureListener() {
-                @Override
-                public void operationComplete(ChannelFuture channelFuture) throws Exception {
-                    logger.info(channelFuture.channel().toString() + "Channel close");
-                }
-            });
-        } catch (Exception ex) {
+            //  防止netty意外退出,main函数处于阻塞状态，后续shutdownGracefully不会执行
+            cf.channel().closeFuture().sync();
+        } finally {
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
         }

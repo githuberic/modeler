@@ -10,11 +10,10 @@ import io.netty.handler.logging.LoggingHandler;
 
 import java.util.logging.Logger;
 
-
 /**
  * @author lgq
  */
-public class EchoExitServer2 {
+public class EchoExitServer4 {
     static Logger logger = Logger.getLogger(EchoExitServer2.class.getName());
 
     public static void main(String[] args) {
@@ -41,12 +40,16 @@ public class EchoExitServer2 {
             cf.channel().closeFuture().addListener(new ChannelFutureListener() {
                 @Override
                 public void operationComplete(ChannelFuture channelFuture) throws Exception {
+                    // 链路关闭时再释放线程池和连接句柄
+                    bossGroup.shutdownGracefully();
+                    workerGroup.shutdownGracefully();
+
                     logger.info(channelFuture.channel().toString() + "Channel close");
                 }
             });
         } catch (Exception ex) {
-            bossGroup.shutdownGracefully();
-            workerGroup.shutdownGracefully();
+            //bossGroup.shutdownGracefully();
+            //workerGroup.shutdownGracefully();
         }
     }
 }
