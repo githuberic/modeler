@@ -1,0 +1,2 @@
+# netty 内存池
+netty针对bytebuf的申请和释放采用了池化技术，通过pooledByteBufAllocator 可以基于内存池分配bytebuf对象
