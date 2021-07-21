@@ -11,7 +11,6 @@ public class HttpResponse {
     private FullHttpResponse response;
     private byte[] body;
 
-    /*
     public HttpResponse(FullHttpResponse response) {
         this.header = response.headers();
         this.response = response;
@@ -22,28 +21,30 @@ public class HttpResponse {
     }
     public byte[] body() {
         return body;
-    }*/
+    }
 
     public HttpHeaders header() {
         return header;
     }
 
-
+    /*
     public HttpResponse(FullHttpResponse response) {
         this.header = response.headers();
         this.response = response;
     }
+    */
 
     /**
      * 1：Exception in thread "main" io.netty.util.IllegalReferenceCountException: refCnt: 0 操作了被释放的对象
      * 2：获取http response时非法引用异常，说明http body已被释放了，业务代码并没有主动释放bytebuf
      * @return
      */
+    /*
     public byte[] body() {
         body = new byte[response.content().readableBytes()];
         response.content().getBytes(0, body);
         return body;
-    }
+    }*/
 
     /**
      * Exception in thread "main" java.lang.UnsupportedOperationException: direct buffer

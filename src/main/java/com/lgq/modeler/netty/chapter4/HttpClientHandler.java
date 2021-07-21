@@ -15,13 +15,17 @@ public class HttpClientHandler extends SimpleChannelInboundHandler<FullHttpRespo
         if (msg.decoderResult().isFailure()) {
             throw new Exception("Decode HttpResponse error : " + msg.decoderResult().cause());
         }
+
+        // 执行完毕channelRead0后，netty/nioeventloop线程会调用referenceCountUtil.release(msg)释放
+        // 后续业务方的线程再访问fullhttpresponse会出现非法引用问题
         HttpResponse response = new HttpResponse(msg);
+
+        // 调用业务thread继续执行
         respPromise.setSuccess(response);
     }
 
     @Override
-    public void exceptionCaught(
-            ChannelHandlerContext ctx, Throwable cause) throws Exception {
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         cause.printStackTrace();
         ctx.close();
     }

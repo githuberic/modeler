@@ -46,6 +46,7 @@ public class HttpClient {
         DefaultPromise<HttpResponse> respPromise = new DefaultPromise<>(channel.eventLoop());
         handler.setRespPromise(respPromise);
         channel.writeAndFlush(request);
+        // 阻塞调用方线程
         HttpResponse response = respPromise.get();
         if (response != null) {
             System.out.print("The client received http response, the body is :" + new String(response.body()));
