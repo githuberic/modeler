@@ -1,4 +1,4 @@
-package com.lgq.modeler.gRPC;
+package com.lgq.grpc.hello.server;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;

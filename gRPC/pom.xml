@@ -14,6 +14,9 @@
     <modules>
         <module>simple-grpc-client</module>
         <module>simple-grpc-server</module>
+        <module>armeria-example</module>
+        <module>hello-gRPC-client</module>
+        <module>hello-gRPC-server</module>
     </modules>
 
     <properties>

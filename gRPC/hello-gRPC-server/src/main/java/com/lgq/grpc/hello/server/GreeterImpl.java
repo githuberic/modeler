@@ -1,4 +1,4 @@
-package com.lgq.modeler.gRPC;
+package com.lgq.grpc.hello.server;
 
 import com.lgq.gRPC.GreeterGrpc;
 import com.lgq.gRPC.HelloReply;

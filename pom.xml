@@ -10,6 +10,7 @@
         <module>concurrent</module>
         <module>leecode</module>
         <module>designpattern</module>
+        <module>hello-gRPC-client</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
