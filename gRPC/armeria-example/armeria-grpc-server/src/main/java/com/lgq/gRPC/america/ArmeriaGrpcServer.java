@@ -20,6 +20,7 @@ import io.grpc.reflection.v1alpha.ServerReflectionGrpc;
  * @author lgq
  */
 public class ArmeriaGrpcServer {
+
     private static final Logger logger = LoggerFactory.getLogger(ArmeriaGrpcServer.class);
 
     public static void main(String[] args) throws Exception {
