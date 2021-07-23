@@ -5,7 +5,7 @@ syntax = "proto3";
 // 定义作用域
 package helloworld;
 
-option java_package = "com.lgq.gRPC";
+option java_package = "com.lgq.grpc.hello";
 option java_outer_classname = "HelloWorldProto";
 option java_multiple_files = true;
 option objc_class_prefix = "HLW";

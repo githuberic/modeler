@@ -1,8 +1,8 @@
 package com.lgq.grpc.hello.server;
 
-import com.lgq.gRPC.GreeterGrpc;
-import com.lgq.gRPC.HelloReply;
-import com.lgq.gRPC.HelloRequest;
+import com.lgq.grpc.hello.GreeterGrpc;
+import com.lgq.grpc.hello.HelloReply;
+import com.lgq.grpc.hello.HelloRequest;
 import io.grpc.stub.StreamObserver;
 
 /**
