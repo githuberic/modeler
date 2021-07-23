@@ -10,7 +10,6 @@
         <module>concurrent</module>
         <module>leecode</module>
         <module>designpattern</module>
-        <module>hello-gRPC-client</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -44,13 +43,6 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-
-        <!--三方工具库-->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>28.1-jre</version>
         </dependency>
 
         <dependency>
