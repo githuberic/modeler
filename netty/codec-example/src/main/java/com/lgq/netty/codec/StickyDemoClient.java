@@ -10,6 +10,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.DelimiterBasedFrameDecoder;
+import io.netty.handler.codec.FixedLengthFrameDecoder;
 
 /**
  * @author lgq
@@ -37,9 +38,8 @@ public class StickyDemoClient {
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
                             //ch.pipeline().addLast("framer", new FixedLengthFrameDecoder(139));
-                            // ch.pipeline().addLast("framer", new StickyDemoDecodeHandlerV2(
-                            //     Unpooled.wrappedBuffer(new byte[] { '#' })));
-                            ch.pipeline().addLast("framer", new DelimiterBasedFrameDecoder(8192, Unpooled.wrappedBuffer(new byte[]{'#'})));
+                            ch.pipeline().addLast("framer", new StickyDemoDecodeHandlerV2(Unpooled.wrappedBuffer(new byte[] { '#' })));
+                            //ch.pipeline().addLast("framer", new DelimiterBasedFrameDecoder(8192, Unpooled.wrappedBuffer(new byte[]{'#'})));
                             ch.pipeline().addLast(new StickyDemoClientHandler());
                         }
                     });

@@ -21,13 +21,15 @@ public class StickyDemoClientHandler extends SimpleChannelInboundHandler<ByteBuf
             builder.append("这是第");
             builder.append(i);
             builder.append("条消息, 内容是：");
+
             for (int j = 0; j < 100; j++) {
                 builder.append(alphabets[i]);
             }
             builder.append("......");
             builder.append("#");
 
-            System.out.println(builder.toString().getBytes().length);
+            //System.out.println(builder.toString().getBytes().length);
+
             ctx.writeAndFlush(Unpooled.copiedBuffer(builder.toString(), CharsetUtil.UTF_8));
         }
     }
