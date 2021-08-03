@@ -1,4 +1,4 @@
-package com.lgq.netty.codec;
+package com.lgq.netty.codec.stricky;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
@@ -11,20 +11,15 @@ import java.util.List;
 /**
  * @author lgq
  */
-public class StickyDemoDecodeHandlerV2 extends ChannelInboundHandlerAdapter {
+public class StickyDemoDecodeHandler extends ChannelInboundHandlerAdapter {
+    /**
+     * 存放待拆包数据的缓冲区
+     */
     private ByteBuf cache;
-    // 包分隔符
-    private byte delimiter;
+    private int frameLength;
 
-    public StickyDemoDecodeHandlerV2(ByteBuf delimiter) {
-        if (delimiter == null) {
-            throw new NullPointerException("delimiter");
-        }
-        if (!delimiter.isReadable()) {
-            throw new IllegalArgumentException("empty delimiter");
-        }
-
-        this.delimiter = delimiter.readByte();
+    public StickyDemoDecodeHandler(int length) {
+        this.frameLength = length;
     }
 
     static ByteBuf expandCache(ByteBufAllocator alloc, ByteBuf cache, int readable) {
@@ -39,33 +34,26 @@ public class StickyDemoDecodeHandlerV2 extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         ByteBuf data = (ByteBuf) msg;
         try {
+            // 读取每一个消息，创建缓冲区
             if (cache == null) {
                 cache = ctx.alloc().buffer(1024);
             } else {
+                // 如果现有的缓冲区容量太小，无法容纳原有数据+新读入的数据，就扩容（重新创建一个大的，并把数据拷贝过去）
                 if (cache.writerIndex() > cache.maxCapacity() - data.readableBytes()) {
                     cache = expandCache(ctx.alloc(), cache, data.readableBytes());
                 }
             }
+
+            // 把新的数据读入缓冲区
             cache.writeBytes(data);
 
+            // 每次读取frameLength（定长）的数据，做为一个包，存储起来
             List<ByteBuf> output = new ArrayList<>();
-
-            int frameIndex = 0;
-            int frameEndIndex = 0;
-            int length = cache.readableBytes();
-            while (frameIndex <= length) {
-                frameEndIndex = cache.indexOf(frameIndex + 1, length, delimiter);
-
-                if (frameEndIndex == -1) {
-                    cache.discardReadBytes();
-                    break;
-                }
-
-                output.add(cache.readBytes(frameEndIndex - frameIndex));
-                cache.skipBytes(1);
-                frameIndex = frameEndIndex + 1;
+            while (cache.readableBytes() >= frameLength) {
+                output.add(cache.readBytes(frameLength));
             }
 
+            // 还有部分数据不够一个包，10， 15， 一个10个，还剩5个
             if (cache.isReadable()) {
                 cache.discardReadBytes();
             }
