@@ -8,14 +8,11 @@ import java.util.concurrent.TimeUnit;
 public class ThreadDaemon {
     public static void main(String[] args) throws Exception{
         long start = System.nanoTime();
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    TimeUnit.DAYS.sleep(Long.MAX_VALUE);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        Thread thread = new Thread(() -> {
+            try {
+                TimeUnit.DAYS.sleep(Long.MAX_VALUE);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }, "Daemon-T");
         thread.setDaemon(true);

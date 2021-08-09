@@ -37,15 +37,12 @@ public class EchoExitServer4 {
             ChannelFuture cf = b.bind(18080).sync();
 
             // Close future 监听channel关闭
-            cf.channel().closeFuture().addListener(new ChannelFutureListener() {
-                @Override
-                public void operationComplete(ChannelFuture channelFuture) throws Exception {
-                    // 链路关闭时再释放线程池和连接句柄
-                    bossGroup.shutdownGracefully();
-                    workerGroup.shutdownGracefully();
+            cf.channel().closeFuture().addListener((ChannelFutureListener) channelFuture -> {
+                // 链路关闭时再释放线程池和连接句柄
+                bossGroup.shutdownGracefully();
+                workerGroup.shutdownGracefully();
 
-                    logger.info(channelFuture.channel().toString() + "Channel close");
-                }
+                logger.info(channelFuture.channel().toString() + "Channel close");
             });
         } catch (Exception ex) {
             //bossGroup.shutdownGracefully();

@@ -34,6 +34,7 @@ public class EchoExitServer2 {
                             p.addLast(new LoggingHandler(LogLevel.INFO));
                         }
                     });
+
             // 同步方式监听
             ChannelFuture cf = b.bind(18080).sync();
 
@@ -45,7 +46,9 @@ public class EchoExitServer2 {
                 }
             });
         } catch (Exception ex) {
+            // 关闭服务端的tcp连接接入线程池
             bossGroup.shutdownGracefully();
+            // 处理客户端网络IO读写的工作线程池
             workerGroup.shutdownGracefully();
         }
     }
