@@ -24,11 +24,8 @@ public class RouterServerHandlerV2 extends SimpleChannelInboundHandler<ByteBuf> 
             if (allocator == null) {
                 allocator = new PooledByteBufAllocator(true);
             }
-
             //解析请求消息，做路由转发，代码省略...
             //转发成功，返回响应给客户端
-
-            //过一段时间 内存不断飙升，有内存泄露问题
             ByteBuf respMsg = allocator.heapBuffer(body.length);
             //作为示例，简化处理，将请求返回
             respMsg.writeBytes(body);
