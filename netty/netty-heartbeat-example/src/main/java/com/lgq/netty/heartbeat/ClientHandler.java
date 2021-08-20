@@ -28,7 +28,6 @@ public class ClientHandler extends CustomHeartbeatHandler{
         sendPingMsg(ctx);
     }
 
-
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         super.channelInactive(ctx);

@@ -12,6 +12,7 @@ public abstract class CustomHeartbeatHandler extends SimpleChannelInboundHandler
     public static final byte PING_MSG = 1;
     public static final byte PONG_MSG = 2;
     public static final byte CUSTOM_MSG = 3;
+
     protected String name;
     private int heartbeatCount = 0;
 

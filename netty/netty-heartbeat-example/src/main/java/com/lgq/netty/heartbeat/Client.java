@@ -57,7 +57,6 @@ public class Client {
                         }
                     });
             doConnect();
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
