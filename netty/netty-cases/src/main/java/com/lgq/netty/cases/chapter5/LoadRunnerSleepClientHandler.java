@@ -37,26 +37,23 @@ public class LoadRunnerSleepClientHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelActive(final ChannelHandlerContext ctx) {
-        loadRunner = new Runnable() {
-            @Override
-            public void run() {
+        loadRunner = () -> {
+            try {
+                TimeUnit.SECONDS.sleep(30);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            ByteBuf msg = null;
+            while(true)
+            {
+                byte [] body = new byte[SIZE];
+                msg = Unpooled.wrappedBuffer(body);
+                ctx.writeAndFlush(msg);
                 try {
-                    TimeUnit.SECONDS.sleep(30);
+                    TimeUnit.MILLISECONDS.sleep(1);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                }
-
-                ByteBuf msg = null;
-                while(true)
-                {
-                    byte [] body = new byte[SIZE];
-                    msg = Unpooled.wrappedBuffer(body);
-                    ctx.writeAndFlush(msg);
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(1);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                 }
             }
         };

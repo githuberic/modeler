@@ -15,8 +15,8 @@ import io.netty.channel.socket.nio.NioSocketChannel;
  */
 public class LoadRunnerClient {
     static final String HOST = System.getProperty("host", "127.0.0.1");
-    static final int PORT = Integer.parseInt(System.getProperty("port", "18085"));
 
+    static final int PORT = Integer.parseInt(System.getProperty("port", "18085"));
 
     @SuppressWarnings({ "unchecked", "deprecation" })
     public static void main(String[] args) throws Exception {
