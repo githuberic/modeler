@@ -1,10 +1,6 @@
-package com.lgq.ds.list.single.basic;
-
-import com.lgq.ds.list.Node;
+package com.lgq.ds.list;
 
 /**
- * Created by eric on 2018/12/27.
- *
  * @author lgq
  */
 public class SingleLinkedList<T> {

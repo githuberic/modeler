@@ -64,9 +64,10 @@ public class LRUCache {
         if (node == end) {
             return;
         }
-        //移除节点
+        // 移除节点
         removeNode(node);
-        //重新插入节点
+
+        // 重新插入节点
         addNode(node);
     }
 

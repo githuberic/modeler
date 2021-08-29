@@ -148,7 +148,6 @@ public class DoubleLinkList<T> {
         }
     }
 
-
     public static void main(String[] args) {
         DoubleLinkList<String> doubleLinkList = new DoubleLinkList<>();
         doubleLinkList.insertInto("a1");
