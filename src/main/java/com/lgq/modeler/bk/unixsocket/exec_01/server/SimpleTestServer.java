@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
-import com.lgq.modeler.bk.unixsocket.Const;
+import com.lgq.modeler.bk.unixsocket.exec_0.Const;
 import org.newsclub.net.unix.AFUNIXServerSocket;
 import org.newsclub.net.unix.AFUNIXSocketAddress;
 
@@ -19,12 +19,12 @@ public class SimpleTestServer {
         File socketFile = new File(Const.SOCKET_FILE);
         try (AFUNIXServerSocket server = AFUNIXServerSocket.newInstance()) {
             server.bind(new AFUNIXSocketAddress(socketFile));
-            System.out.println("server: " + server);
+            //System.out.println("server: " + server);
 
             while (!Thread.interrupted()) {
-                System.out.println("Waiting for connection...");
+                //System.out.println("Waiting for connection...");
                 try (Socket sock = server.accept()) {
-                    System.out.println("Connected: " + sock);
+                    //System.out.println("Connected: " + sock);
 
                     try (InputStream is = sock.getInputStream(); //
                          OutputStream os = sock.getOutputStream()) {

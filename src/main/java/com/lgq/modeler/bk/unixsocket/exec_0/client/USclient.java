@@ -1,20 +1,19 @@
-package com.lgq.modeler.bk.unixsocket.server;
+package com.lgq.modeler.bk.unixsocket.exec_0.client;
 
-import com.lgq.modeler.bk.unixsocket.Const;
+import com.lgq.modeler.bk.unixsocket.exec_0.Const;
 import jnr.unixsocket.UnixSocket;
 import jnr.unixsocket.UnixSocketAddress;
 import jnr.unixsocket.UnixSocketChannel;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 /**
- * @author lgq
+ * @@author lgq
  */
-public class UServer {
+public class USclient {
     public static void main(String[] args) throws Exception {
+
         // 建立 Unix Socket 连接
         File sockFile = new File(Const.SOCKET_FILE);
 
@@ -23,13 +22,11 @@ public class UServer {
         UnixSocket unixSocket = new UnixSocket(channel);
         //writer = new PrintWriter(Channels.newOutputStream(channel));
 
-        // 获取返回结果
-        System.out.println("---- Docker Response ----");
-        BufferedReader br = new BufferedReader(new InputStreamReader(unixSocket.getInputStream()));
-        String line;
-        while ((line = br.readLine()) != null) {
-            System.out.println(line);
-        }
+        PrintWriter writer = new PrintWriter(unixSocket.getOutputStream());
+        String str = "lgq-杭州";
+        byte[] bContent = str.getBytes("UTF-8");
+        writer.write(String.valueOf(bContent), 0, bContent.length);
+        writer.flush();
         unixSocket.close();
     }
 }

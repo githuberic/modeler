@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import com.lgq.modeler.bk.unixsocket.Const;
+import com.lgq.modeler.bk.unixsocket.exec_0.Const;
 import org.newsclub.net.unix.AFUNIXSocket;
 import org.newsclub.net.unix.AFUNIXSocketAddress;
 import org.newsclub.net.unix.AFUNIXSocketException;
@@ -36,7 +36,7 @@ public class SimpleTestClient {
                 System.out.println("Server says: " + new String(buf, 0, read));
 
                 System.out.println("Replying to server...");
-                os.write("Hello Server".getBytes());
+                os.write("Hi Server".getBytes());
                 os.flush();
             }
         }
