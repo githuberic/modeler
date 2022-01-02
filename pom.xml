@@ -86,6 +86,21 @@
             <version>6.0.53</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.jnr</groupId>
+            <artifactId>jnr-unixsocket</artifactId>
+            <version>0.38.15</version>
+        </dependency>
+        <dependency>
+            <groupId>no.fiken.oss.junixsocket</groupId>
+            <artifactId>junixsocket-common</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>no.fiken.oss.junixsocket</groupId>
+            <artifactId>junixsocket-native-common</artifactId>
+            <version>1.0.2</version>
+        </dependency>
     </dependencies>
 
     <build>
