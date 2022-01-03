@@ -41,13 +41,14 @@ public class Downloader extends Thread {
         byte[] buffer = new byte[1024];
 
         try {
-            while((n = in.read(buffer)) != -1) {
+            while ((n = in.read(buffer)) != -1) {
                 out.write(buffer, 0, n);
                 total += n;
                 updateProgress(total);
             }
             out.flush();
-        } catch (IOException e)
-        { }
+        } catch (IOException e) {
+
+        }
     }
 }
