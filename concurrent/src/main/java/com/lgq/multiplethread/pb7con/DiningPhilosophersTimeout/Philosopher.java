@@ -26,7 +26,9 @@ public class Philosopher extends Thread {
                 if (thinkCount % 10 == 0) {
                     System.out.println("Philosopher " + this + " has thought " + thinkCount + " times");
                 }
-                Thread.sleep(random.nextInt(1000)); // Think for a while
+
+                // Think for a while
+                Thread.sleep(random.nextInt(1000));
                 leftChopstick.lock();
                 try {
                     if (rightChopstick.tryLock(1000, TimeUnit.MILLISECONDS)) {
@@ -45,6 +47,7 @@ public class Philosopher extends Thread {
                 }
             }
         } catch (InterruptedException e) {
+            System.out.println(e.getMessage());
         }
     }
 }

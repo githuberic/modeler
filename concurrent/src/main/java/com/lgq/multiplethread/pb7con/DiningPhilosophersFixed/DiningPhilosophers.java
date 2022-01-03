@@ -1,4 +1,4 @@
-package com.lgq.multiplethread.pb7con.DiningPhilosophers;
+package com.lgq.multiplethread.pb7con.DiningPhilosophersFixed;
 
 /**
  * @author lgq

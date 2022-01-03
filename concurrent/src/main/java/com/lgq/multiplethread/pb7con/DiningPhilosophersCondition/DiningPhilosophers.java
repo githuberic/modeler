@@ -1,4 +1,6 @@
-package com.lgq.multiplethread.pb7con.DiningPhilosophers;
+package com.lgq.multiplethread.pb7con.DiningPhilosophersCondition;
+
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author lgq
@@ -6,14 +8,15 @@ package com.lgq.multiplethread.pb7con.DiningPhilosophers;
 public class DiningPhilosophers {
     public static void main(String[] args) throws InterruptedException {
         Philosopher[] philosophers = new Philosopher[5];
-        Chopstick[] chopsticks = new Chopstick[5];
+        ReentrantLock table = new ReentrantLock();
 
         for (int i = 0; i < 5; ++i) {
-            chopsticks[i] = new Chopstick(i);
+            philosophers[i] = new Philosopher(table);
         }
 
         for (int i = 0; i < 5; ++i) {
-            philosophers[i] = new Philosopher(chopsticks[i], chopsticks[(i + 1) % 5]);
+            philosophers[i].setLeft(philosophers[(i + 4) % 5]);
+            philosophers[i].setRight(philosophers[(i + 1) % 5]);
             philosophers[i].start();
         }
 
