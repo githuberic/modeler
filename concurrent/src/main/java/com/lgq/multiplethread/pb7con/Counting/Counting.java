@@ -1,4 +1,4 @@
-package com.lgq.multiplethread.pb7con.paulbutcher;
+package com.lgq.multiplethread.pb7con.Counting;
 
 /**
  * @author lgq
@@ -8,7 +8,7 @@ public class Counting {
         class Counter {
             private int count = 0;
 
-            public synchronized void increment() {
+            public void increment() {
                 ++count;
             }
 
