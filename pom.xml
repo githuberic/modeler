@@ -4,7 +4,6 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>gRPC</module>
         <module>netty</module>
         <module>ds</module>
         <module>concurrent</module>
@@ -100,6 +99,11 @@
             <groupId>no.fiken.oss.junixsocket</groupId>
             <artifactId>junixsocket-native-common</artifactId>
             <version>1.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.directory.studio</groupId>
+            <artifactId>org.apache.commons.codec</artifactId>
+            <version>1.8</version>
         </dependency>
     </dependencies>
 
