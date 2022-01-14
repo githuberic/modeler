@@ -1,25 +1,25 @@
-package com.lgq.modeler.bk.unixsocket.exec_01.client;
+package com.lgq.modeler.bk.unixsocket.exec_codec.client;
+
+import com.lgq.modeler.bk.unixsocket.exec_0.Const;
+import com.lgq.modeler.bk.unixsocket.exec_codec.USConst;
+import org.newsclub.net.unix.AFUNIXSocket;
+import org.newsclub.net.unix.AFUNIXSocketAddress;
+import org.newsclub.net.unix.AFUNIXSocketException;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import com.lgq.modeler.bk.unixsocket.exec_0.Const;
-import org.newsclub.net.unix.AFUNIXSocket;
-import org.newsclub.net.unix.AFUNIXSocketAddress;
-import org.newsclub.net.unix.AFUNIXSocketException;
-
 /**
  * @author lgq
  */
 public class SimpleTestClient {
+
     public static void main(String[] args) throws IOException {
-        //final File socketFile = new File(new File(System.getProperty("java.io.tmpdir")), "junixsocket-test.sock");
-        File socketFile = new File(Const.SOCKET_FILE);
         try (AFUNIXSocket sock = AFUNIXSocket.newInstance()) {
             try {
-                sock.connect(new AFUNIXSocketAddress(socketFile));
+                sock.connect(new AFUNIXSocketAddress(USConst.File_File));
             } catch (AFUNIXSocketException e) {
                 System.out.println("Cannot connect to server. Have you started it?");
                 System.out.flush();
