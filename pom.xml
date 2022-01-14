@@ -5,7 +5,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>gRPC</module>
-        <module>netty</module>
         <module>ds</module>
         <module>concurrent</module>
         <module>leecode</module>
