@@ -12,3 +12,5 @@
   - YieldingWaitStrategy：尝试100次，然后Thread.yield()让出cpu
 
 https://www.jianshu.com/p/bad7b4b44e48
+
+https://blog.csdn.net/qiyeliuli/article/details/102560504
