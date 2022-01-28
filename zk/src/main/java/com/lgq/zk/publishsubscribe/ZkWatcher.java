@@ -1,4 +1,4 @@
-package com.lgq.zk;
+package com.lgq.zk.publishsubscribe;
 
 import com.lgq.zk.util.ZKclient;
 import org.apache.curator.framework.CuratorFramework;
