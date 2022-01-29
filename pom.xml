@@ -12,6 +12,7 @@
         <module>disruptor</module>
         <module>zk</module>
         <module>JRoader</module>
+        <module>JRedis</module>
     </modules>
 
     <parent>
