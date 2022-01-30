@@ -35,7 +35,7 @@ public class UserServiceImplWithAnno implements UserService {
     public User cacheUserWithCondition(final User user) {
         //保存到数据库
         //返回值，将保存到缓存
-        Logger.info("user : save to redis");
+        System.out.println("user : save to redis");
         return user;
     }
 
@@ -49,7 +49,7 @@ public class UserServiceImplWithAnno implements UserService {
     @Override
     public User getUser(final long id) {
         //如果缓存没有,则从数据库中加载
-        Logger.info("user : is null");
+        System.out.println("user : is null");
         return null;
     }
 
@@ -64,7 +64,7 @@ public class UserServiceImplWithAnno implements UserService {
     public void deleteUser(long id) {
 
         //从数据库中删除
-        Logger.info("delete  User:", id);
+        System.out.println("delete  User:"+id);
     }
 
     /**
