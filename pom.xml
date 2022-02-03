@@ -13,6 +13,7 @@
         <module>zk</module>
         <module>JRoader</module>
         <module>JRedis</module>
+        <module>JBasicRoader</module>
     </modules>
 
     <parent>
