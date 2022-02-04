@@ -1,4 +1,4 @@
-package com.lgq.modeler.bk.bigdecimal;
+package com.lgq.jbasic.bk.bigdecimal;
 
 import java.math.BigDecimal;
 

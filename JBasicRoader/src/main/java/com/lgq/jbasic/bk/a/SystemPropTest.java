@@ -1,4 +1,4 @@
-package com.lgq.modeler.bk;
+package com.lgq.jbasic.bk.a;
 
 /**
  * Created by eric on 2019/4/16.
