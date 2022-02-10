@@ -1,4 +1,4 @@
-package com.lgq.jbasic.proxy.dynamicproxy.example;
+package com.lgq.jbasic.proxy.dynamicproxy.example.e3;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -7,22 +7,16 @@ import java.io.FileInputStream;
 /**
  * @author lgq
  */
-public class MyClassLoader extends ClassLoader {
-    private final File classPathFile;
+public class MyClassLoader extends ClassLoader{
+    private File classPathFile;
 
     public MyClassLoader() {
         String classPath = MyClassLoader.class.getResource("").getPath();
         this.classPathFile = new File(classPath);
     }
 
-    /**
-     * 一个类加载器(class loader)来加载上一步得到的.class文件到JVM虚拟机中，生成实例对象
-     *
-     * @param name
-     * @return
-     */
     @Override
-    protected Class<?> findClass(String name) {
+    protected Class<?> findClass(String name) throws ClassNotFoundException {
         String className = MyClassLoader.class.getPackage().getName() + "." + name;
 
         if (classPathFile != null) {
