@@ -6,7 +6,6 @@
 
     <modules>
         <module>ds</module>
-        <module>concurrent</module>
         <module>leecode</module>
         <module>designpattern</module>
         <module>disruptor</module>
@@ -14,7 +13,6 @@
         <module>JRoader</module>
         <module>JRedis</module>
         <module>JBasicRoader</module>
-        <module>jpool</module>
     </modules>
 
     <parent>
