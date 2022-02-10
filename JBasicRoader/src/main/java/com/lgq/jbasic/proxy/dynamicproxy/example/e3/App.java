@@ -7,7 +7,7 @@ import com.lgq.jbasic.proxy.dynamicproxy.example.Payable;
  */
 public class App {
     public static void main(String[] args) {
-        Payable payable = (Payable) Proxy.newProxyInstance(new MyClassLoader(), Comparable.class);
+        Payable payable = (Payable) Proxy.newProxyInstance(new MyClassLoader(), Payable.class);
         payable.pay();
     }
 }

@@ -31,14 +31,13 @@ public class Proxy {
             compile(file);
 
             // 4.类加载器将.class文件加载到JVM
-            Class proxyClass = classLoader.loadClass("AlipayLogProxy");
-            Constructor proxyConstructor = proxyClass.getConstructor(Payable.class);
+            Class<?> proxyClass = classLoader.loadClass("AlipayLogProxy");
+            Constructor<?> proxyConstructor = proxyClass.getConstructor(Payable.class);
+
             file.delete();
 
             // 5.反射进行实例化对象
-            Payable p = (Payable) proxyConstructor.newInstance(new Alipay());
-            return p;
-
+            return proxyConstructor.newInstance(new Alipay());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -67,11 +66,13 @@ public class Proxy {
 
     private static File createJavaFile(String src) throws Exception {
         String filePath = Proxy.class.getResource("").getPath();
+
         File file = new File(filePath + "AlipayLogProxy.java");
         FileWriter fw = new FileWriter(file);
         fw.write(src);
         fw.flush();
         fw.close();
+
         return file;
     }
 

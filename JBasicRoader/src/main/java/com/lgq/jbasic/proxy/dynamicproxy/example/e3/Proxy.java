@@ -43,41 +43,41 @@ public class Proxy {
         return null;
     }
 
-    private static String generateSrc(Class intfce) {
+    private static String generateSrc(final Class intface) {
 
         //获取接口所在包名
-        String packageName = intfce.getPackage().getName() + "." + intfce.getSimpleName();
+        String packageName = intface.getPackage().getName() + "." + intface.getSimpleName();
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("package com.lgq.jbasic.proxy.dynamicproxy.example.e3;").append(ln)
+        StringBuilder sbCode = new StringBuilder();
+        sbCode.append("package com.lgq.jbasic.proxy.dynamicproxy.example.e3;").append(ln)
                 .append("import ").append(packageName).append(";").append(ln)
-                .append("public class $Proxy0 implements ").append(intfce.getName()).append(" { ").append(ln)
-                .append("    private ").append(intfce.getSimpleName()).append(" obj;").append(ln)
-                .append("    public $Proxy0(").append(intfce.getSimpleName()).append(" obj) {").append(ln)
+                .append("public class $Proxy0 implements ").append(intface.getName()).append(" { ").append(ln)
+                .append("    private ").append(intface.getSimpleName()).append(" obj;").append(ln)
+                .append("    public $Proxy0(").append(intface.getSimpleName()).append(" obj) {").append(ln)
                 .append("        this.obj = obj;").append(ln)
                 .append("    }").append(ln).append(ln)
 
-                .append(generateMethodsSrc(intfce))
+                .append(generateMethodsSrc(intface))
 
                 .append("}").append(ln).append(ln);
 
-        System.out.println(sb.toString());
-        return sb.toString();
+        System.out.println(sbCode.toString());
+        return sbCode.toString();
     }
 
-    private static StringBuilder generateMethodsSrc(final Class intfce) {
+    private static StringBuilder generateMethodsSrc(final Class intface) {
         StringBuilder sb = new StringBuilder();
 
-        for (Method m : intfce.getMethods()) {
+        for (Method m : intface.getMethods()) {
             sb.append("    @Override").append(ln);
 
-            Class<?>[] params = m.getParameterTypes();
             StringBuilder paramNames = new StringBuilder();
             StringBuilder paramValues = new StringBuilder();
             StringBuilder paramClasses = new StringBuilder();
 
+            Class<?>[] params = m.getParameterTypes();
             for (int i = 0; i < params.length; i++) {
-                Class clazz = params[i];
+                Class<?> clazz = params[i];
                 String type = clazz.getName();
                 String paramName = toLowerFirstCase(clazz.getSimpleName()) + i;
                 paramNames.append(type + " " + paramName);
