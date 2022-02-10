@@ -18,7 +18,7 @@ public class App {
         // 实现自己的逻辑
         InvocationHandler logHandler = new LogInvocationHandler(target);
 
-        // 得到代理对象
+        // 代理对象
         Class[] classes = new Class[1];
         classes[0] = Payable.class;
         Payable proxy = (Payable) Proxy.newProxyInstance(new MyClassLoader(), classes, logHandler);
