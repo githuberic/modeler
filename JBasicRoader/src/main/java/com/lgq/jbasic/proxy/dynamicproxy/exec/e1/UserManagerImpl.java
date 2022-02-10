@@ -1,4 +1,4 @@
-package com.lgq.jbasic.proxy.dynamicproxy.e1;
+package com.lgq.jbasic.proxy.dynamicproxy.exec.e1;
 
 /**
  * @author lgq

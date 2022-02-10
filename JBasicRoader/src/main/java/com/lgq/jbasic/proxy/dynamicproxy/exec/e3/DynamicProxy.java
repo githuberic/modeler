@@ -1,4 +1,4 @@
-package com.lgq.jbasic.proxy.dynamicproxy.e3;
+package com.lgq.jbasic.proxy.dynamicproxy.exec.e3;
 
 import java.lang.reflect.Method;
 

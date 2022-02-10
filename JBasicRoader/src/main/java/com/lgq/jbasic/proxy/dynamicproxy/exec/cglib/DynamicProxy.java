@@ -1,4 +1,4 @@
-package com.lgq.jbasic.proxy.dynamicproxy.cglib;
+package com.lgq.jbasic.proxy.dynamicproxy.exec.cglib;
 
 public class DynamicProxy {
 }
