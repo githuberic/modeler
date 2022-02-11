@@ -1,4 +1,4 @@
-package com.lgq.jroader.mem;
+package com.lgq.jbasic.mem;
 
 /**
  * Created by eric on 2019/12/13.

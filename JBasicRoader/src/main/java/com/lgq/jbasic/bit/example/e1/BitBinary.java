@@ -1,11 +1,13 @@
-package com.lgq.jroader.bit;
+package com.lgq.jbasic.bit.example.e1;
+
+import org.junit.Test;
 
 /**
- * Created by eric on 2019/11/5.
+ * @author lgq
  */
-public class BinaryV1 {
-    public static void main(String[] args) {
-        int x;
+public class BitBinary {
+    @Test
+    public void testBit() {
         // 0x01=16进制 = 1*16^0 + 0*16^1
         int x01 = 0x01;
         System.out.println("x01=" + x01);
@@ -28,14 +30,5 @@ public class BinaryV1 {
 
         int x40 = 0x40;
         System.out.println("x40=" + x40);
-
-        int y = x01 | x02;
-        System.out.println("Binary=" + Integer.toBinaryString(y) + ",10=" + y);
-
-        int y1 = y & x01;
-        System.out.println("Binary=" + Integer.toBinaryString(y1) + ",10=" + y1);
-
-        int y2 = y & x02;
-        System.out.println("Binary=" + Integer.toBinaryString(y2) + ",10=" + y2);
     }
 }

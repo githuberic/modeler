@@ -1,4 +1,4 @@
-package com.lgq.jroader.bit;
+package com.lgq.jbasic.bit.practices.prt1;
 
 /**
  * IP地址和二进制移位运算

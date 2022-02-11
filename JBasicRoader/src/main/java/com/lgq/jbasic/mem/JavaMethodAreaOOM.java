@@ -1,4 +1,4 @@
-package com.lgq.jroader.mem;
+package com.lgq.jbasic.mem;
 
 
 import net.sf.cglib.proxy.Enhancer;
