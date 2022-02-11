@@ -1,9 +1,5 @@
-package com.lgq.jroader.unixsocket.exec_0;
+package com.lgq.jbasic.unixsocket.exec_01;
 
-/**
- * @author lgq
- */
 public class Const {
-    // /var/run/docker.sock
     public static final String SOCKET_FILE = "/Users/guoqingliu/rainbow-agent/rainbow.sock";
 }

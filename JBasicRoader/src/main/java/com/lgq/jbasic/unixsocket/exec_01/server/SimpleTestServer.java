@@ -1,39 +1,34 @@
-package com.lgq.jroader.unixsocket.exec_codec.server;
+package com.lgq.jbasic.unixsocket.exec_01.server;
 
-import com.lgq.jroader.unixsocket.exec_codec.USConst;
-import org.newsclub.net.unix.AFUNIXServerSocket;
-import org.newsclub.net.unix.AFUNIXSocketAddress;
-
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+
+import com.lgq.jbasic.unixsocket.exec_01.Const;
+import org.newsclub.net.unix.AFUNIXServerSocket;
+import org.newsclub.net.unix.AFUNIXSocketAddress;
 
 /**
  * @author lgq
  */
 public class SimpleTestServer {
     public static void main(String[] args) throws IOException {
+        //final File socketFile = new File(new File(System.getProperty("java.io.tmpdir")), "junixsocket-test.sock");
+        File socketFile = new File(Const.SOCKET_FILE);
         try (AFUNIXServerSocket server = AFUNIXServerSocket.newInstance()) {
-            server.bind(new AFUNIXSocketAddress(USConst.File_File));
-            System.out.println("server: " + server);
+            server.bind(new AFUNIXSocketAddress(socketFile));
+            //System.out.println("server: " + server);
 
             while (!Thread.interrupted()) {
-                System.out.println("Waiting for connection...");
+                //System.out.println("Waiting for connection...");
                 try (Socket sock = server.accept()) {
-                    System.out.println("Connected: " + sock);
+                    //System.out.println("Connected: " + sock);
 
                     try (InputStream is = sock.getInputStream(); //
                          OutputStream os = sock.getOutputStream()) {
                         System.out.println("Saying hello to client " + os);
-
-                        /*
-                        os.write(0x01);
-                        os.write(0x02);
-                        os.write(0x01);
-                        os.write(0x01);
-                        os.write(0x00);*/
-
                         os.write("Hello, dear Client".getBytes());
                         os.flush();
 

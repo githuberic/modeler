@@ -1,4 +1,4 @@
-package com.lgq.jroader.classtype;
+package com.lgq.jbasic.reflect.example.e2;
 
 /**
  * Created by eric on 2019/11/10.

@@ -1,4 +1,4 @@
-package com.lgq.jroader.classtype.reflect;
+package com.lgq.jbasic.reflect.example.e1;
 
 import java.lang.reflect.Method;
 

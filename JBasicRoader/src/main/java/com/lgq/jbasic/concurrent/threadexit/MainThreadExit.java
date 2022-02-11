@@ -1,4 +1,4 @@
-package com.lgq.jroader.threadexit;
+package com.lgq.jbasic.concurrent.threadexit;
 
 
 import java.io.IOException;

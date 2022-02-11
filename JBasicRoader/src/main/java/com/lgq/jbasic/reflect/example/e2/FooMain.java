@@ -1,4 +1,4 @@
-package com.lgq.jroader.classtype;
+package com.lgq.jbasic.reflect.example.e2;
 
 /**
  * Created by eric on 2019/11/10.
@@ -18,7 +18,7 @@ public class FooMain {
         // 第三种表达方式--->通过Class.forName方法动态加载类
         Class fooV3 = null;
         try {
-            fooV3 = Class.forName("com.lgq.jroader.classtype.Foo");
+            fooV3 = Class.forName("com.lgq.jbasic.reflect.example.e2.Foo");
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         }
