@@ -12,6 +12,7 @@ public class FooMain {
 
         // 第一种表示方式--->任何一个类都有一个隐含的静态成员变量class
         Class fooV1 = Foo.class;
+
         // 第二种表示方式--->已经知道该类的对象通过getClass方法
         Class fooV2 = foo.getClass();
 

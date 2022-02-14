@@ -1,11 +1,9 @@
-package com.lgq.jbasic.reflect.example.e1;
+package com.lgq.runtimep.reflect.example;
 
 /**
- * Created by eric on 2019/11/10.
- *
  * @author lgq
  */
-public class MethodInvoke {
+public class ReflectCls {
     public void print() {
         System.out.println("Hello World");
     }
