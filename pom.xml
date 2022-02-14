@@ -11,8 +11,8 @@
         <module>disruptor</module>
         <module>zk</module>
         <module>JRedis</module>
-        <module>JBasicRoader</module>
-        <module>runtime-ep</module>
+        <module>JBasic</module>
+        <module>runtimep</module>
     </modules>
 
     <parent>
@@ -119,6 +119,11 @@
                 <groupId>org.javassist</groupId>
                 <artifactId>javassist</artifactId>
                 <version>3.27.0-GA</version>
+            </dependency>
+            <dependency>
+                <groupId>com.esotericsoftware</groupId>
+                <artifactId>reflectasm</artifactId>
+                <version>1.11.3</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
