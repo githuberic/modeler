@@ -4,6 +4,9 @@ package com.lgq.runtimep.reflect.example;
  * @author lgq
  */
 public class ReflectCls {
+
+    public int value;
+
     public void print() {
         System.out.println("Hello World");
     }
