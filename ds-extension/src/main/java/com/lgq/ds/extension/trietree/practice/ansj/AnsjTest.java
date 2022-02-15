@@ -1,4 +1,4 @@
-package com.lgq.ds.trietree.practice.ansj;
+package com.lgq.ds.extension.trietree.practice.ansj;
 
 import love.cq.domain.Forest;
 import love.cq.library.Library;

@@ -1,4 +1,4 @@
-package com.lgq.ds.consistenthash;
+package com.lgq.ds.extension.consistenthash;
 
 import com.google.common.base.Strings;
 import java.util.LinkedList;

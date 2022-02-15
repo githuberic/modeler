@@ -13,6 +13,7 @@
         <module>JRedis</module>
         <module>JBasic</module>
         <module>runtimep</module>
+        <module>ds-extension</module>
     </modules>
 
     <parent>

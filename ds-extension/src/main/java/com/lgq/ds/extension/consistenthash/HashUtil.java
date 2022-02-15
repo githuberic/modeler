@@ -1,4 +1,4 @@
-package com.lgq.ds.consistenthash;
+package com.lgq.ds.extension.consistenthash;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

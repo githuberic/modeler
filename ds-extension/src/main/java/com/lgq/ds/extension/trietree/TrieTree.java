@@ -1,4 +1,4 @@
-package com.lgq.ds.trietree;
+package com.lgq.ds.extension.trietree;
 
 import java.util.HashMap;
 
