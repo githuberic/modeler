@@ -1,4 +1,4 @@
-package com.lgq.ds;
+package com.lgq.ds.list;
 
 /**
  * Created by eric on 2018/8/5.

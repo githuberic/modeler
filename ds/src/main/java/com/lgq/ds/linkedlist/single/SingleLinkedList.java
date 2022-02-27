@@ -1,10 +1,14 @@
-package com.lgq.ds.list;
+package com.lgq.ds.linkedlist.single;
 
 /**
  * @author lgq
  */
 public class SingleLinkedList<T> {
     private Node head = null;
+
+    public Node createNode(int value) {
+        return new Node(value, null);
+    }
 
     public Node findByValue(T value) {
         if (value == null) {
@@ -187,46 +191,5 @@ public class SingleLinkedList<T> {
             p = p.getNext();
         }
         System.out.println();
-    }
-
-    public static Node createNode(int value) {
-        return new Node(value, null);
-    }
-
-    public static void main(String[] args) {
-        SingleLinkedList<String> singleLinkedList = new SingleLinkedList<>();
-        // 初始化
-        String data[] = {"a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9"};
-        for (int i = 0; i < data.length; i++) {
-            singleLinkedList.insertTail(data[i]);
-        }
-
-        // 验证-输出
-        System.out.println(">>>output");
-        singleLinkedList.printAll();
-
-        Node node = singleLinkedList.findByIndex(2);
-        if (node != null) {
-            System.out.println(">>>findByIndex,data=" + node.getData());
-        }
-        node = singleLinkedList.findByValue("a1");
-        if (node != null) {
-            System.out.println(">>>findByValue,data=" + node.getData());
-        }
-
-        singleLinkedList.insertBefore(new Node("a4", null), new Node("a44", null));
-        System.out.println(">>>output-insertBefore(a4)");
-        singleLinkedList.printAll();
-        singleLinkedList.insertBefore(new Node("a1", null), new Node("a0", null));
-        System.out.println(">>>output-insertBefore(a1)");
-        singleLinkedList.printAll();
-
-        singleLinkedList.deleteByNode(new Node("a44", null));
-        System.out.println(">>>output-deleteByNode(a44)");
-        singleLinkedList.printAll();
-
-        singleLinkedList.deleteByValue("a1");
-        System.out.println(">>>output-deleteByValue(a1)");
-        singleLinkedList.printAll();
     }
 }
