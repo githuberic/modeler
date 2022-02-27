@@ -19,7 +19,7 @@ public class GenericArray<T> {
      * 默认10个元素
      */
     public GenericArray() {
-        this(10);
+        this(16);
     }
 
     /**
@@ -87,6 +87,7 @@ public class GenericArray<T> {
             resize(data.length * 2);
         }
 
+        // Move back(后移)
         for (int i = size - 1; i >= index; i--) {
             data[i + 1] = data[i];
         }
@@ -100,6 +101,7 @@ public class GenericArray<T> {
 
         T ret = data[index];
 
+        // Move forward 迁移
         for (int i = index + 1; i < size; i++) {
             data[i - 1] = data[i];
         }
@@ -154,7 +156,7 @@ public class GenericArray<T> {
 
     private void checkIndex(int index) {
         if (index < 0 || index > this.size) {
-            throw new IndexOutOfBoundsException("超过数组实际元素范围!");
+            throw new IndexOutOfBoundsException("Out of range of actual array");
         }
     }
 
@@ -162,21 +164,5 @@ public class GenericArray<T> {
         if (index < 0 || index >= this.size) {
             throw new IllegalArgumentException("Remove failed! Require index >=0 and index < size.");
         }
-    }
-
-    public static void main(String[] args) {
-        GenericArray<Integer> genericArray = new GenericArray<>(3);
-        genericArray.add(3, 0);
-        genericArray.add(22, 1);
-        genericArray.add(9, 2);
-        genericArray.add(8, 3);
-        genericArray.add(5, 4);
-        System.out.println(genericArray.toString());
-        System.out.println(">>>remove");
-        genericArray.remove(2);
-        System.out.println(genericArray.toString());
-        genericArray.add(44, 2);
-        int findPosition = genericArray.find(44);
-        System.out.println(String.format(">>>find,element=%s,position=%d\n", 44, findPosition));
     }
 }
