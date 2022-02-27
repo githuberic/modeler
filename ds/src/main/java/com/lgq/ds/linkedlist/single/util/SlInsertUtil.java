@@ -1,6 +1,6 @@
-package com.lgq.ds.list.single.util;
+package com.lgq.ds.linkedlist.single.util;
 
-import com.lgq.ds.list.Node;
+import com.lgq.ds.linkedlist.single.Node;
 
 /**
  * @author lgq

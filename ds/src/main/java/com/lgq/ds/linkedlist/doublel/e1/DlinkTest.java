@@ -1,10 +1,8 @@
-package com.lgq.ds.list;
+package com.lgq.ds.linkedlist.doublel.e1;
 
 /**
  * Created by eric on 2018/8/5.
  */
-
-import com.lgq.ds.list.DoubleLink;
 
 /**
  * Java 实现的双向链表。

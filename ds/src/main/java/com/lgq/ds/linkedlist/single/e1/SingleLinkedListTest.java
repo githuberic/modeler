@@ -1,5 +1,6 @@
-package com.lgq.ds.linkedlist.single;
+package com.lgq.ds.linkedlist.single.e1;
 
+import com.lgq.ds.linkedlist.single.Node;
 import org.junit.Test;
 
 public class SingleLinkedListTest {

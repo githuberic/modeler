@@ -1,4 +1,4 @@
-package com.lgq.ds.list;
+package com.lgq.ds.linkedlist.doublel.e2;
 
 /**
  * @param <T>
@@ -136,31 +136,6 @@ public class DoubleLinkList<T> {
         return;
     }
 
-    private class Node<T> {
-        private T value;
-        private Node<T> pre;
-        private Node<T> next;
 
-        public Node(T value, Node<T> pre, Node<T> next) {
-            this.value = value;
-            this.pre = pre;
-            this.next = next;
-        }
-    }
-
-    public static void main(String[] args) {
-        DoubleLinkList<String> doubleLinkList = new DoubleLinkList<>();
-        doubleLinkList.insertInto("a1");
-        doubleLinkList.insertInto("a2");
-        doubleLinkList.insertInto("a3");
-        doubleLinkList.insertInto("a4");
-        doubleLinkList.insertInto("a5");
-        doubleLinkList.insert("a6",1);
-        DoubleLinkList.Node node = doubleLinkList.getNode(1);
-        if (node != null) {
-            System.out.println(node.value);
-        }
-
-    }
     // from https://www.cnblogs.com/ChenD/p/7814906.html
 }

@@ -1,6 +1,6 @@
-package com.lgq.ds.list.single.extension;
+package com.lgq.ds.linkedlist.single.extension;
 
-import com.lgq.ds.list.Node;
+import com.lgq.ds.linkedlist.single.Node;
 
 /**
  * Created by eric on 2018/12/27.

@@ -1,8 +1,8 @@
-package com.lgq.ds.list.single.extension;
+package com.lgq.ds.linkedlist.single.extension;
 
-import com.lgq.ds.list.Node;
-import com.lgq.ds.list.single.util.SlInsertUtil;
-import com.lgq.ds.list.single.util.SlUtil;
+import com.lgq.ds.linkedlist.single.Node;
+import com.lgq.ds.linkedlist.single.util.SlInsertUtil;
+import com.lgq.ds.linkedlist.single.util.SlUtil;
 
 /**
  * @author lgq

@@ -1,4 +1,4 @@
-package com.lgq.ds.list.cases.cache;
+package com.lgq.ds.linkedlist.single.practice;
 
 import java.util.HashMap;
 
