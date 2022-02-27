@@ -5,7 +5,7 @@ import com.lmax.disruptor.EventFactory;
 import com.lmax.disruptor.EventHandler;
 import com.lmax.disruptor.dsl.Disruptor;
 import com.lmax.disruptor.dsl.ProducerType;
-import sun.misc.Contended;
+import jdk.internal.vm.annotation.Contended;
 
 import java.util.concurrent.ThreadFactory;
 
