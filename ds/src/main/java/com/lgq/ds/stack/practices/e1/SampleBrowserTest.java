@@ -1,4 +1,4 @@
-package com.lgq.ds.stack.example.e1;
+package com.lgq.ds.stack.practices.e1;
 
 import org.junit.Test;
 
