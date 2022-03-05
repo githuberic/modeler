@@ -1,4 +1,6 @@
-package com.lgq.ds.queue;
+package com.lgq.ds.queue.examples;
+
+import com.lgq.ds.queue.Node;
 
 /**
  * Created by eric on 2018/12/30.
@@ -47,18 +49,5 @@ public class LinkedQueue<T> {
             p = p.getNext();
         }
         System.out.println();
-    }
-
-    public static void main(String[] args) {
-        LinkedQueue<String> linkedQueue = new LinkedQueue<>();
-        linkedQueue.enqueue("a1");
-        linkedQueue.enqueue("a2");
-        linkedQueue.enqueue("a3");
-        linkedQueue.enqueue("a4");
-        linkedQueue.enqueue("a5");
-        linkedQueue.enqueue("a6");
-        linkedQueue.printAll();
-        String dequeue = linkedQueue.dequeue();
-        System.out.print(">>>Dequeue=" + dequeue);
     }
 }

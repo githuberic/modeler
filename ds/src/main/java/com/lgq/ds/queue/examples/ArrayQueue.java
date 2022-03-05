@@ -1,9 +1,11 @@
-package com.lgq.ds.queue;
+package com.lgq.ds.queue.examples;
 
 /**
+ * Created by eric on 2018/12/30.
+ *
  * @author lgq
  */
-public class DynamicArrayQueue<T> {
+public class ArrayQueue<T> {
     /**
      * 存储数据的数组
      */
@@ -23,12 +25,28 @@ public class DynamicArrayQueue<T> {
      *
      * @param capacity
      */
-    public DynamicArrayQueue(int capacity) {
+    public ArrayQueue(int capacity) {
         items = (T[]) new Object[capacity];
         size = capacity;
     }
 
-    public boolean enqueue(T t) {
+    /*
+     * 入队：
+     * 1.堆满的时，入队失败
+     * 1.1频繁出入队，造成数组使用不连续
+     * 1.2在入队的时候，集中触发进行数据搬移
+     * 2.在末尾插入数据，注意tail指向队尾元素的索引+1
+     */
+    public boolean enqueue(T item) {
+        if (tail == size) {
+            return false;
+        }
+        items[tail] = item;
+        tail++;
+        return true;
+    }
+
+    public boolean enqueueV2(T t) {
         // tail == size表示队列末尾没有空间了
         if (tail == size) {
             // tail ==n && head==0，表示整个队列都占满了
@@ -62,18 +80,5 @@ public class DynamicArrayQueue<T> {
             System.out.print(items[i] + " ");
         }
         System.out.println();
-    }
-
-    public static void main(String[] args) {
-        DynamicArrayQueue<String> dynamicArrayQueue = new DynamicArrayQueue<>(6);
-        dynamicArrayQueue.enqueue("a1");
-        dynamicArrayQueue.enqueue("a2");
-        dynamicArrayQueue.enqueue("a3");
-        dynamicArrayQueue.enqueue("a4");
-        dynamicArrayQueue.enqueue("a5");
-        dynamicArrayQueue.enqueue("a6");
-        dynamicArrayQueue.printAll();
-        String dequeue = dynamicArrayQueue.dequeue();
-        System.out.print(">>>Dequeue=" + dequeue);
     }
 }
