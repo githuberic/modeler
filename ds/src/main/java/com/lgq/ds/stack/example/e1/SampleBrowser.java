@@ -1,6 +1,7 @@
-package com.lgq.ds.stack;
+package com.lgq.ds.stack.example.e1;
 
 import com.google.common.base.Strings;
+import com.lgq.ds.stack.LinkedListBasedStack;
 
 /**
  * @author lgq
@@ -60,24 +61,5 @@ public class SampleBrowser {
 
     public void checkCurrentPage() {
         System.out.println("Current page is: " + this.currentPage);
-    }
-
-    public static void main(String[] args) {
-        SampleBrowser browser = new SampleBrowser();
-        browser.open("http://www.baidu.com");
-        browser.open("http://news.baidu.com/");
-        browser.open("http://news.baidu.com/ent");
-        browser.goBack();
-        browser.goBack();
-        browser.goForward();
-        browser.open("http://www.qq.com");
-        browser.goForward();
-        browser.goBack();
-        browser.goForward();
-        browser.goBack();
-        browser.goBack();
-        browser.goBack();
-        browser.goBack();
-        browser.checkCurrentPage();
     }
 }

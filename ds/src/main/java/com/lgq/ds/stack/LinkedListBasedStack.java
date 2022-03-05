@@ -25,7 +25,6 @@ public class LinkedListBasedStack<T> {
     public T pop() {
         Node popNode = this.top;
         if (popNode == null) {
-            System.out.println("Stack is empty.");
             return null;
         }
 
@@ -33,6 +32,7 @@ public class LinkedListBasedStack<T> {
         if (this.size > 0) {
             this.size--;
         }
+
         return (T) popNode.getData();
     }
 
@@ -44,6 +44,7 @@ public class LinkedListBasedStack<T> {
         if (this.top == null) {
             return null;
         }
+
         return (T) this.top.getData();
     }
 
