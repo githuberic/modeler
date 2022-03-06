@@ -1,4 +1,4 @@
-package com.lgq.ds.bv;
+package com.lgq.ds.bit;
 
 import java.util.ArrayList;
 import java.util.List;

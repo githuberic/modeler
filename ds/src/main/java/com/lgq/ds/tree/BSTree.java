@@ -36,7 +36,6 @@ public class BSTree<T extends Comparable<T>> {
         mRoot = null;
     }
 
-
     public void preOrder() {
         preOrder(mRoot);
     }
