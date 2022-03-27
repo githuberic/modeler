@@ -14,6 +14,7 @@
         <module>JBasic</module>
         <module>runtimep</module>
         <module>ds-extension</module>
+        <module>oop</module>
     </modules>
 
     <parent>
