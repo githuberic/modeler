@@ -15,6 +15,7 @@
         <module>runtimep</module>
         <module>ds-extension</module>
         <module>oop</module>
+        <module>starter-groovy</module>
     </modules>
 
     <parent>
