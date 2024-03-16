@@ -29,6 +29,7 @@ public class SingleLinkedListTest {
         singleLinkedList.insertBefore(new Node("a4", null), new Node("a44", null));
         System.out.println(">>>output-insertBefore(a4)");
         singleLinkedList.printAll();
+
         singleLinkedList.insertBefore(new Node("a1", null), new Node("a0", null));
         System.out.println(">>>output-insertBefore(a1)");
         singleLinkedList.printAll();
