@@ -11,8 +11,8 @@ import java.util.concurrent.TimeUnit;
 public class SimpleScheduler implements Scheduler {
     private ScheduledExecutorService executorService;
 
-    public SimpleScheduler() {
-        executorService = new ScheduledThreadPoolExecutor(10);
+    public SimpleScheduler(int corePoolSize) {
+        executorService = new ScheduledThreadPoolExecutor(corePoolSize);
     }
 
     @Override
