@@ -8,10 +8,10 @@ import java.util.PriorityQueue;
 public class Starter {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 1, 1, 2, 2, 3,3,3,3};
-        int k = 2;
+        int[] nums = new int[]{1, 1, 1, 2, 2, 3, 3, 3, 3, 4, 5, 4, 4, 5};
+        int k = 3;
 
-        int[] arrTop = topKFrequentV2(nums, 2);
+        int[] arrTop = topKFrequentV2(nums, k);
         for (int val : arrTop) {
             System.out.println(val);
         }
@@ -93,10 +93,9 @@ public class Starter {
         }
 
         int[] arrRes = new int[k];
-        for(int i = 0; i < k;i++){
+        for (int i = 0; i < k; i++) {
             arrRes[i] = priorityQueue.poll()[0];
         }
         return arrRes;
     }
-
 }
