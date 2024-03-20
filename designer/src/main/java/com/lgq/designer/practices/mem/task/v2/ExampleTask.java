@@ -4,7 +4,6 @@ package com.lgq.designer.practices.mem.task.v2;
  * @author lgq
  */
 public class ExampleTask implements Task<String> {
-
     private final String str;
 
     public ExampleTask(String str) {
