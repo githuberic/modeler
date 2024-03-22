@@ -5,7 +5,7 @@ package com.lgq.designer.practices.jira_2678.stat;
  */
 public class CookieStat {
     private String cookie;
-    private int failureCount;
+    private static int failureCount = 0;
 
     public CookieStat(String cookie) {
         CookieStat(cookie, 0);
@@ -22,5 +22,9 @@ public class CookieStat {
 
     public String getCookie() {
         return this.cookie;
+    }
+
+    public void incrFailCount() {
+        failureCount++;
     }
 }

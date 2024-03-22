@@ -7,6 +7,8 @@ import com.lgq.designer.practices.jira_2678.stat.CookieStat;
 import com.lgq.designer.practices.jira_2678.stat.StatInfo;
 import com.lgq.designer.practices.jira_2678.utils.FileUtil;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -16,6 +18,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.nio.file.Path;
+
 /**
  * @author lgq
  */
@@ -24,7 +28,6 @@ public class Jira2678 {
     static final String COOKIE_PATH = "/Users/guoqingliu/job/pingpong/jira_2687/US_90001.cookie";
     static final String PRODUCT_PATH = "/Users/guoqingliu/job/pingpong/jira_2687/products.txt";
     static final String USER_AGETN_PATH = "/Users/guoqingliu/job/pingpong/jira_2687/user_agents.txt";
-    static final String RESULT_FILE = "abuyun_buybox_mt_log.txt";
 
     static final int MAX_COOKIE_FAILURES = 3;
     private static final int THREAD_POOL_SIZE = 1;
@@ -53,7 +56,6 @@ public class Jira2678 {
         String url = String.format("https://www.amazon.com/dp/%s?th=1&psc=1", asin);
 
         CookieStat cookieStat = cookieQueue.poll();
-        assert cookieStat != null;
         if (cookieStat.getFailureCount() >= MAX_COOKIE_FAILURES) {
             return;
         }
@@ -70,20 +72,38 @@ public class Jira2678 {
             String resContent = HttpClient.doGet(url, mapHeaders);
 
             // 保存结果
-            FileUtil.write(resContent, RESULT_FILE);
+            writeResContent(asin, resContent);
 
             // 解析结果
             resResult = parseRes(resContent);
             if (!Strings.isNullOrEmpty(resResult)) {
                 statInfo.incrSuccessCount();
+            } else {
+                statInfo.incrFailCount();
             }
         } catch (MyException ex) {
             statInfo.incrFailCount();
-            //cookieQueue.add();
+            cookieStat.incrFailCount();
         }
 
         // 记录日志
         LoggingUtil.logging(asin, resResult, statInfo, null);
+    }
+
+    private static void writeResContent(String asin, String content) throws MyException {
+        String uuid = UUID.randomUUID().toString();
+        String file = String.format("./amazon/java/abuyun/%s/%s.html", asin, uuid);
+
+        try {
+            Path path = Paths.get(file);
+            if (!Files.exists(path)) {
+                Files.createDirectories(path.getParent());
+            }
+
+            FileUtil.write(file, content);
+        } catch (Exception ex) {
+            throw new MyException("WriteResContent error");
+        }
     }
 
     private static String parseRes(String resContent) throws MyException {

@@ -11,7 +11,9 @@ import java.util.Date;
  * @author lgq
  */
 public class LoggingUtil {
-    public static void logging(String asin, String content, StatInfo statInfo, MyException ex) {
+    static final String RESULT_FILE = "abuyun_buybox_mt_log.txt";
+
+    public static void logging(String asin, String content, StatInfo statInfo, MyException ex) throws MyException {
         StringBuilder sb = new StringBuilder();
 
         // 时间s
@@ -26,13 +28,15 @@ public class LoggingUtil {
         if (statInfo != null) {
             sb.append(String.format(",Total=%d", statInfo.getTotal()));
             sb.append(String.format(",Success=%d", statInfo.getSuccessCount()));
+            sb.append(String.format(",Fail=%d", statInfo.getFailCount()));
         }
 
         if (ex != null) {
             sb.append(String.format(",error=%s", ex.getMessage()));
         }
         sb.append(String.format(",content=%s", content));
+        sb.append("\n");
 
-        //FileUtil.write(sb.toString());
+        FileUtil.write(RESULT_FILE, sb.toString());
     }
 }
