@@ -1,6 +1,7 @@
 package com.lgq.designer.practices.jira_2678.utils;
 
 import com.google.common.base.Strings;
+import com.lgq.designer.practices.jira_2678.Constants;
 import com.lgq.designer.practices.jira_2678.MyException;
 import com.lgq.designer.practices.jira_2678.stat.StatInfo;
 
@@ -11,9 +12,8 @@ import java.util.Date;
  * @author lgq
  */
 public class LoggingUtil {
-    static final String RESULT_FILE = "abuyun_buybox_mt_log.txt";
 
-    public static void logging(String asin, String content, StatInfo statInfo, MyException ex) throws MyException {
+    public static void logging(final String asin, final String content, StatInfo statInfo, MyException ex) throws MyException {
         StringBuilder sb = new StringBuilder();
 
         // 时间s
@@ -37,6 +37,6 @@ public class LoggingUtil {
         sb.append(String.format(",content=%s", content));
         sb.append("\n");
 
-        FileUtil.write(RESULT_FILE, sb.toString());
+        FileUtil.write(Constants.RESULT_FILE, sb.toString());
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
  * @author lgq
  */
 public class FileUtil {
-    public static List<String> readFileByLines(String filePath) throws MyException {
+    public static List<String> readFileByLines(final String filePath) throws MyException {
         List<String> lines = new ArrayList<>();
 
         File file = new File(filePath);
@@ -30,7 +30,7 @@ public class FileUtil {
         return lines;
     }
 
-    public static void write(String filePath, String content) throws MyException {
+    public static void write(final String filePath, final String content) throws MyException {
         try {
             FileWriter fileWriter = new FileWriter(filePath, true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
