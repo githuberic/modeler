@@ -20,6 +20,7 @@ public class LoggingUtil {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String formatDate = simpleDateFormat.format(new Date());
         sb.append(String.format("Time=%s", formatDate));
+        sb.append(String.format(",Thread=%d", Thread.currentThread().getId()));
 
         if (!Strings.isNullOrEmpty(asin)) {
             sb.append(String.format(",Asin=%s", asin));

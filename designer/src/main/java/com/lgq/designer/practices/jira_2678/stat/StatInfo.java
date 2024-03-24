@@ -7,9 +7,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class StatInfo {
 
-    private final AtomicInteger totalCount;
-    private final AtomicInteger successCount;
-    private final AtomicInteger failCount;
+    private AtomicInteger totalCount;
+    private AtomicInteger successCount;
+    private AtomicInteger failCount;
 
     public StatInfo() {
         totalCount = new AtomicInteger(0);
